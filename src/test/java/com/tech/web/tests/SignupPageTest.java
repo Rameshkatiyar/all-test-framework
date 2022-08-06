@@ -25,8 +25,6 @@ public class SignupPageTest extends WebBaseTest {
         web.putElementText(facebookSignupPage.getFirstNameField(), "Ramesh");
         web.putElementText(facebookSignupPage.getLastNameField(), "Katiyar");
 
-        facebookSignupPage.getSignupButton().click();
-
         String imgName = "invalid-fb-signup-page.png";
         web.takeScreenshot(imgName);
 

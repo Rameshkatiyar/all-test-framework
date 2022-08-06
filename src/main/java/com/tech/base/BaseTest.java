@@ -1,17 +1,20 @@
 package com.tech.base;
 
 import com.tech.service.ExtentReportTestNgListener;
+import lombok.extern.slf4j.Slf4j;
 import org.testng.annotations.*;
 
-public abstract class BaseTest extends EnvironmentSetup {
-//
-//    @BeforeClass
-//    public void setup(){
-//        System.out.println("Before Each Test Class!");
-//    }
-//
-//    @AfterClass
-//    public void teardown(){
-//        System.out.println("After each test class!");
-//    }
+@Slf4j
+public abstract class BaseTest {
+    @BeforeSuite(alwaysRun = true)
+    public void setupEnv(){
+        System.out.println("Test execution started!");
+        ExtentReportTestNgListener.createReport();
+    }
+
+    @AfterSuite(alwaysRun = true)
+    public void tearDown(){
+        System.out.println("Test execution completed!");
+        ExtentReportTestNgListener.closeReport();
+    }
 }
