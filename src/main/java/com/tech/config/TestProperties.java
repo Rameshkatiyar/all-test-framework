@@ -9,4 +9,5 @@ public interface TestProperties {
     String osType = PropertiesConfig.getProp("osType");
     String osVersion = PropertiesConfig.getProp("osVersion");
     String webResolution = PropertiesConfig.getProp("webResolution");
+    String extentReportUrl = PropertiesConfig.getProp("extentReportUrl");
 }
