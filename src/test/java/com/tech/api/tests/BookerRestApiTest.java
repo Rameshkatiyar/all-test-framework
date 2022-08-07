@@ -3,7 +3,9 @@ package com.tech.api.tests;
 import com.tech.annotations.Testable;
 import com.tech.api.config.ApiUrl;
 import com.tech.base.ApiBaseTest;
+import com.tech.constants.CsvDataProvider;
 import com.tech.constants.TestType;
+import com.tech.loader.models.UserDataCsv;
 import com.tech.service.api.ResponseUtil;
 import com.tech.utils.PathUtil;
 import io.restassured.response.Response;
@@ -43,5 +45,11 @@ public class BookerRestApiTest extends ApiBaseTest {
         String bookingId = String.valueOf(jsonResp.get("bookingid"));
 
         Assert.assertEquals(bookingId, "3216");
+    }
+
+    @Test(dataProvider = CsvDataProvider.userDataProvider)
+    public void testDDTMethod(UserDataCsv userDataCsv) {
+        System.out.println("Data is: " + userDataCsv);
+        Assert.assertEquals(userDataCsv.getUserName(), "ramesh1");
     }
 }
