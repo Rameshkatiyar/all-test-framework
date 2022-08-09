@@ -53,7 +53,10 @@
 Link: https://www.guru99.com/test-automation-framework.html
 
 ## How to set up framework?
-- TDOD
+- Clone the repo from Git.
+- Update the `test.properties` file with base URI of system.
+  - Example: `webBaseURI=https://www.facebook.com`
+- Install MakeFile. 
 
 ## How to run the test with filters?
 Go inside the `all-test-framework` directory and run the following command.
@@ -68,7 +71,15 @@ Go inside the `all-test-framework` directory and run the following command.
 - To run a tests of a specific class: `make test class=LoginPageTest`
 
 ## How to automate Web UI tests?
-- TDOD
+- Go inside the directory `all-test-framework/src/test/java/com/tech/web`.
+- We use POM framework. That's why if needed, add the UI Page class for web-elements. (Location: `web/pages`)
+  - And extends the BaseWebPage class.
+  - And create parameterized constructor and set driver.
+- If needed, we can configure the URL paths in WebUrl class. (Location: `web/config`)
+- Finally add your test class.
+  - Extends the `WebBaseTest` base class.
+  - Use `@Testable` annotation for class to assign a testname. It will be used to create XML file at runtime.
+  - Add pre and test method.
 
 ## How to automate API tests?
 - TDOD
